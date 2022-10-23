@@ -8,7 +8,7 @@ Small project to create SPA
 
 # Live Page
 
-TBD
+https://andrejnevesjr.github.io/landingpage/
 
 ---
 
