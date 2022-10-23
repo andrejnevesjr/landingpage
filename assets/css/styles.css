@@ -1,15 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@font-face {
+    font-family: 'ComicBook';
+    src: url('/assets/fonts/comic_book/Comic\ Book.otf') format("opentype");
+
+}
 
 :root {
     --html-font-size: 62.5%;
-    --primary-color: #0A1128;
+    --primary-color: #2f4de6;
     --font-color-img: #FFFFFF;
     --bg-alternative-color: #FFFFFF;
-    --light-gray-color: #EEEEEE;
-    --body-font-family: 'Open Sans', sans-serif;
-    --text-font-family: 'Montserrat', sans-serif;
-    --page-max-width: 1200px;
+    --light-blue-color: #4a66ef;
+    --body-font-family: 'Roboto', sans-serif;
+    --text-font-family: 'ComicBook', sans-serif;
+    --page-max-width: 120rem;
     --gap: 3rem;
+    --secondary-color: #0aadff;
 
 
 }
@@ -22,16 +29,34 @@
 
 html {
     font-size: var(--html-font-size);
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: var(--body-font-family);
-    font-size: 2rem;
+    font-size: 2.1rem;
     color: var(--primary-color);
+    line-height: 1.5;
+}
+
+.scroll-hide {
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.scroll-hide::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
 }
 
 a {
     text-decoration: none;
+}
+
+p {
+    margin-bottom: 3rem;
 }
 
 h1,
@@ -70,19 +95,37 @@ h6 {
 
 .main-bg {
     background-image: url('../img/main-bg.svg');
-    background-size: cover;
+    background-size: 250%;
     background-position: center;
+    background-repeat: no-repeat;
     color: var(--font-color-img);
 }
 
 .white-bg {
     background: var(--bg-alternative-color);
+    color: var(--primary-color);
+}
+
+.logo-page img {
+    position: absolute;
+    width: 15rem;
+    margin-top: -5.5rem;
+    margin-left: -4rem;
+    z-index: 2;
 }
 
 .main-content {
     max-width: var(--page-max-width);
     margin: 0 auto;
     padding: var(--gap);
+}
+
+/*  content stays on the same position and the new content stacks on top of the old one */
+.pages {
+    position: sticky;
+    width: 100%;
+    height: 100vh;
+    top: 65px;
 }
 
 .section {
@@ -96,7 +139,9 @@ h6 {
     left: 0;
     right: 0;
     width: 100%;
-    border-bottom: 1px solid var(--light-gray-color);
+    border-bottom: 0.05rem solid var(--light-blue-color);
+    z-index: 1;
+
 }
 
 .menu-content {
@@ -120,14 +165,15 @@ h6 {
 .menu ul {
     list-style: none;
     display: flex;
+    font-family: var(--text-font-family);
 }
 
 .menu ul li a {
+    position: relative;
     display: block;
     padding: 2rem;
-    font-size: 1.8rem;
+    font-size: 2.5rem;
     color: var(--primary-color);
-    position: relative;
 }
 
 .menu ul li a::after {
@@ -137,11 +183,55 @@ h6 {
     left: 50%;
     width: 0;
     height: 0.2rem;
-    background: crimson;
+    background: var(--primary-color);
     transition: all 300ms ease-in-out;
 }
 
 .menu ul li a:hover::after {
     left: 25%;
     width: 50%;
+}
+
+.menu-spacing {
+    height: 65px;
+}
+
+.intro-content {
+    position: relative;
+    top: -8rem;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    align-items: stretch;
+    gap: var(--gap);
+    height: 100vh;
+}
+
+.intro-text-content,
+.intro-img {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+
+.intro-text-content h2 {
+    font-size: 8rem;
+    margin-bottom: 5rem;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+
+.intro-img img {
+    max-width: 100%;
+    height: auto;
+}
+
+.tools-content {
+    max-width: 80rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
 }
