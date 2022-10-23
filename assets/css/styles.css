@@ -1,21 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('http://fonts.cdnfonts.com/css/comics');
 
-@font-face {
-    font-family: 'ComicBook';
-    /* src: url('../fonts/comic.otf') format("opentype"); */
-    src: url('./assets/fonts/comic.otf') format("opentype");
-    font-style: normal;
-
-}
-
-:root {
+*:root {
     --html-font-size: 62.5%;
     --primary-color: #2f4de6;
     --font-color-img: #FFFFFF;
     --bg-alternative-color: #FFFFFF;
     --light-blue-color: #4a66ef;
     --body-font-family: 'Roboto', sans-serif;
-    --text-font-family: 'ComicBook', sans-serif;
+    --text-font-family: 'Comics', sans-serif;
     --page-max-width: 120rem;
     --gap: 3rem;
     --secondary-color: #0aadff;
