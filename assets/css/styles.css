@@ -90,9 +90,8 @@ h6 {
 
 .main-bg {
     background-image: url('../img/main-bg.svg');
-    background-size: 250%;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
     color: var(--font-color-img);
 }
 
@@ -112,16 +111,16 @@ h6 {
 .main-content {
     max-width: var(--page-max-width);
     margin: 0 auto;
-    padding: var(--gap);
+    padding: 10rem var(--gap);
 }
 
 /*  content stays on the same position and the new content stacks on top of the old one */
-.pages {
+/* .pages {
     position: sticky;
     width: 100%;
     height: 100vh;
     top: 65px;
-}
+} */
 
 .section {
     min-height: 100vh;
@@ -198,7 +197,7 @@ h6 {
     grid-template-columns: 1fr 1.5fr;
     align-items: stretch;
     gap: var(--gap);
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .intro-text-content,
@@ -225,8 +224,60 @@ h6 {
 .tools-content {
     max-width: 80rem;
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     text-align: center;
+}
+
+.tools-heading {
+    padding-bottom: 4rem;
+}
+
+.grid-one-content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.grid-main-heading {
+    margin-bottom: 1rem;
+}
+
+.grid-description {
+    padding-bottom: 5rem;
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap);
+    counter-reset: grid-counter;
+}
+
+.grid h3 {
+    font-size: 3rem;
+    position: relative;
+    padding-left: 5rem;
+    padding-bottom: 3rem;
+}
+
+.grid h3::before {
+    counter-increment: grid-counter;
+    content: counter(grid-counter);
+    position: absolute;
+    font-size: 8rem;
+    font-style: italic;
+    top: -4rem;
+    left: -1rem;
+    transform: rotate(5deg);
+}
+
+
+.tools-content p strong {
+    font-size: 3rem;
+    font-style: italic;
+    display: block;
 }
